@@ -8,7 +8,8 @@ import { Star, ShoppingCart, Filter, SlidersHorizontal } from 'lucide-react';
 import { productsApi } from '@/lib/api';
 import { productCategories } from '@/lib/data';
 import type { Product } from '@/types';
-
+import ProductImage from '@/assets/Product/productimage.png';
+import productHero from "@/assets/Product/heroBanner.png";
 function ProductList() {
   const searchParams = useSearchParams();
   const categoryParam = searchParams.get('category');
@@ -65,8 +66,18 @@ function ProductList() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 py-16 md:py-24">
-        <div className="container-custom">
+         <section
+          className="relative py-16 md:py-24 overflow-hidden"
+          style={{
+          backgroundImage: `url(${productHero.src})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          }}
+          >
+          <div className="absolute inset-0 bg-black/20 z-0" />
+        <div className="container-custom relative z-10">
+        
           <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-sm text-blue-200 text-sm font-semibold rounded-full mb-4">
             Our Products
           </span>
@@ -120,11 +131,18 @@ function ProductList() {
               ))}
             </div>
           ) : filteredProducts.length === 0 ? (
-            <div className="text-center py-20">
-              <ShoppingCart className="w-16 h-16 text-slate-300 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-slate-900 mb-2">No products found</h3>
-              <p className="text-slate-500">Try selecting a different category.</p>
-            </div>
+                <div className="relative h-48 bg-white overflow-hidden">
+                  <img
+                  src={ProductImage.src}
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-3 right-3">
+                    <span className="text-xs font-medium px-2 py-1 bg-white/90 rounded-md text-slate-600">
+                    {product.warranty} Warranty
+    </span>
+  </div>
+</div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filteredProducts.map((product, index) => (
@@ -134,15 +152,19 @@ function ProductList() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05 }}
                   className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-slate-100"
-                >
-                  <div className="relative h-48 bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
-                    <ShoppingCart className="w-12 h-12 text-slate-300" />
-                    <div className="absolute top-3 right-3">
-                      <span className="text-xs font-medium px-2 py-1 bg-white/90 rounded-md text-slate-600">
-                        {product.warranty} Warranty
-                      </span>
-                    </div>
-                  </div>
+                >     <div className="relative h-48 overflow-hidden bg-white">
+  <img
+    src={ProductImage.src}
+    alt={product.name}
+    className="w-full h-full object-cover"
+  />
+
+  <div className="absolute top-3 right-3">
+    <span className="text-xs font-medium px-2 py-1 bg-white/90 rounded-md text-slate-600">
+      {product.warranty} Warranty
+    </span>
+  </div>
+</div>
                   <div className="p-5">
                     <div className="text-xs font-medium text-blue-600 uppercase tracking-wider mb-1">
                       {product.category}

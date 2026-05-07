@@ -1,3 +1,7 @@
+import image1 from "@/assets/Home/image1.png"
+import image2 from "@/assets/Home/image2.png"
+import image3 from "@/assets/Home/image3.png"
+
 export const companyInfo = {
   name: 'PowerMax Solutions',
   tagline: 'Reliable Power Backup & Solar Solutions',
@@ -26,6 +30,7 @@ export const heroSlides = [
     subtitle: 'Premium inverters, batteries & solar solutions for homes and businesses',
     cta: 'Get Free Quote',
     ctaLink: '/contact/',
+    image: image1,
     secondaryCta: 'Explore Products',
     secondaryCtaLink: '/products/',
     bgGradient: 'from-primary-900 via-primary-800 to-primary-700',
@@ -36,6 +41,7 @@ export const heroSlides = [
     subtitle: 'Cut your electricity bills by up to 80% with our advanced solar panel systems',
     cta: 'Go Solar Today',
     ctaLink: '/products/?category=solar-panels',
+    image:image2,
     secondaryCta: 'Learn More',
     secondaryCtaLink: '/about/',
     bgGradient: 'from-emerald-900 via-emerald-800 to-teal-700',
@@ -46,6 +52,7 @@ export const heroSlides = [
     subtitle: 'Heavy-duty inverters and battery banks for commercial establishments',
     cta: 'Enquire Now',
     ctaLink: '/contact/',
+    image:image3,
     secondaryCta: 'View Solutions',
     secondaryCtaLink: '/products/?category=inverters',
     bgGradient: 'from-slate-900 via-slate-800 to-slate-700',

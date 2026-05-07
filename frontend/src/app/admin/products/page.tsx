@@ -6,6 +6,7 @@ import {
   Plus, Pencil, Trash2, X, Search, Package, Star, Image as ImageIcon
 } from 'lucide-react';
 import toast from 'react-hot-toast';
+import ProductImage from '@/assets/products/product.png';
 import type { Product } from '@/types';
 
 const categories = [
@@ -166,9 +167,13 @@ export default function AdminProductsPage() {
                   <tr key={product._id} className="hover:bg-slate-50 transition-colors">
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center">
-                          <Package className="w-5 h-5 text-slate-400" />
-                        </div>
+                        <div className="w-12 h-12 rounded-lg overflow-hidden border border-slate-200">
+                          <img
+                          src={ProductImage.src}
+                          alt="Product"
+                          className="w-full h-full object-cover"
+                          />
+                          </div>
                         <div>
                           <p className="font-medium text-slate-900 text-sm">{product.name}</p>
                           <p className="text-xs text-slate-500">{product.shortDescription}</p>

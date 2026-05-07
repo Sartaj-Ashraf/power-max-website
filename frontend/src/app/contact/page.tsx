@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, MessageSquare, Send, CheckCircle } from 'lucide-react';
 import { companyInfo } from '@/lib/data';
+import ContactHero from "@/assets/Contact/image1.png"
 import toast from 'react-hot-toast';
 
 export default function ContactPage() {
@@ -42,19 +43,35 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 py-16 md:py-24">
-        <div className="container-custom">
-          <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-sm text-blue-200 text-sm font-semibold rounded-full mb-4">
-            Contact Us
-          </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Get in <span className="text-cyan-400">Touch</span>
-          </h1>
-          <p className="text-lg text-blue-200 max-w-2xl">
-            Have questions about our products or services? We are here to help. Reach out to us and we will respond within 2 hours.
-          </p>
-        </div>
-      </section>
+      <section className="relative py-16 md:py-24 overflow-hidden">
+
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{
+      backgroundImage: `url(${ContactHero.src})`,
+    }}
+  />
+
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black/20" />
+
+  {/* Content */}
+  <div className="relative z-10 container-custom">
+    <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-sm text-blue-200 text-sm font-semibold rounded-full mb-4">
+      Contact Us
+    </span>
+
+    <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+      Get in <span className="text-cyan-400">Touch</span>
+    </h1>
+
+    <p className="text-lg text-blue-100 max-w-2xl">
+      Have questions about our products or services? We are here to help.
+      Reach out to us and we will respond within 2 hours.
+    </p>
+  </div>
+</section>
 
       <section className="section-padding">
         <div className="container-custom">
