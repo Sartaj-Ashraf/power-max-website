@@ -25,24 +25,31 @@ export function HeroSection() {
 
   return (
     <section className="relative h-[600px] md:h-[700px] lg:h-[800px] overflow-hidden">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentSlide}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
-          className={`absolute inset-0 bg-gradient-to-br ${slide.bgGradient}`}
-        />
-      </AnimatePresence>
+         <AnimatePresence >
+  <motion.div
+    key={currentSlide}
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.8 }}
+    className="absolute inset-0"
+    style={{
+      backgroundImage: `url(${slide.image.src})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }}
+  >
+    <div className={`absolute inset-0 bg-gradient-to-br ${slide.bgGradient} opacity-70`} />
+  </motion.div>
+</AnimatePresence>
 
       <div className="absolute inset-0 opacity-10" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+       
       }} />
 
       <div className="relative z-10 container-custom h-full flex items-center">
         <div className="max-w-3xl">
-          <AnimatePresence mode="wait">
+          <AnimatePresence >
             <motion.div
               key={currentSlide}
               initial={{ opacity: 0, y: 30 }}
@@ -72,7 +79,7 @@ export function HeroSection() {
                   {slide.cta}
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
-                <Link href={slide.secondaryCtaLink} className="btn-secondary border-white text-white hover:bg-white/10">
+                <Link href={slide.secondaryCtaLink} className="btn-secondary bg-blue-900 border-white text-white hover:bg-white/10">
                   {slide.secondaryCta}
                 </Link>
               </div>

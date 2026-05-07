@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { motion } from 'framer-motion';
 import { Shield, Award, Users, Target, CheckCircle, Zap } from 'lucide-react';
 import { companyInfo, brandPartners } from '@/lib/data';
+import aboutHero from "@/assets/About/image1.png"
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -11,8 +12,18 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
+
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 py-24 md:py-32">
+      <section 
+       className="relative py-24 md:py-32 overflow-hidden"
+        style={{
+        backgroundImage: `url(${aboutHero.src})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+  }}
+      >
+         <div className="absolute inset-0 bg-black/20 z-0" />
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
         </div>
