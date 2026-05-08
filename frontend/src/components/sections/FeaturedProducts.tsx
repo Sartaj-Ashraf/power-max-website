@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { Star, ArrowRight, ShoppingCart } from 'lucide-react';
 import { productsApi } from '@/lib/api';
 import type { Product } from '@/types';
+import proimg from "@/assets/Product/productimage.png"
 
 export function FeaturedProducts() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -23,6 +24,7 @@ export function FeaturedProducts() {
             description: 'High capacity pure sine wave inverter', shortDescription: '3.5KVA Pure Sine Wave Inverter',
             price: 28500, originalPrice: 32000, image: '/images/inverter-1.jpg',
             specifications: { 'Capacity': '3.5KVA', 'Waveform': 'Pure Sine Wave' },
+            
             features: ['Pure Sine Wave', 'LCD Display'], warranty: '2 Years', stock: 10,
             isFeatured: true, createdAt: '', updatedAt: ''
           },
@@ -128,9 +130,14 @@ export function FeaturedProducts() {
               className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-slate-100"
             >
               <div className="relative h-56 bg-gradient-to-br from-slate-100 to-slate-200 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <ShoppingCart className="w-16 h-16 text-slate-300" />
-                </div>
+               
+                  <img
+                  src={proimg.src}
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                  />
+
+
                 {product.originalPrice && (
                   <div className="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">
                     {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
