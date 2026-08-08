@@ -6,7 +6,7 @@ import {
   Plus, Pencil, Trash2, X, Search, Package, Star, Image as ImageIcon
 } from 'lucide-react';
 import toast from 'react-hot-toast';
-import ProductImage from '@/assets/products/product.png';
+import ProductImage from '@/assets/product/productimage.png';
 import type { Product } from '@/types';
 
 const categories = [

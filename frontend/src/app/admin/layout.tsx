@@ -12,7 +12,7 @@ import {
 const sidebarItems = [
   { name: 'Dashboard', href: '/admin/', icon: LayoutDashboard },
   { name: 'Products', href: '/admin/products/', icon: Package },
-  { name: 'Testimonials', href: '/admin/testimonials/', icon: Star },
+  // { name: 'Testimonials', href: '/admin/testimonials/', icon: Star },
   { name: 'Contacts', href: '/admin/contacts/', icon: Phone },
   { name: 'Enquiries', href: '/admin/enquiries/', icon: MessageSquare },
   { name: 'Settings', href: '/admin/settings/', icon: Settings },
